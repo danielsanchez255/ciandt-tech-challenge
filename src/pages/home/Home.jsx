@@ -4,7 +4,7 @@ import './Home.css';
 const Home = () =>  {
   return (
     <>
-      hola
+      Probando Home
     </>
   );
 

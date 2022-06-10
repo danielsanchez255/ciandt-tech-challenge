@@ -2,13 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import reducers from "./reducers";
+import pokemonReducer from "./reducers/pokemon";
 
 import Home from "./pages/home/Home";
 
 import "./index.css";
 
-const store = configureStore({ reducers: reducers, devTools: true });
+const reducer = {
+  pokemon: pokemonReducer
+}
+
+const store = configureStore({ reducer: reducer, devTools: true });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
