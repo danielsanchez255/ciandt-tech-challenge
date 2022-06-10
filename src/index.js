@@ -1,13 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import reducers from "./reducers";
+
+import Home from "./pages/home/Home";
+
 import "./index.css";
-import App from "./App";
+
+const store = configureStore({ reducers: reducers, devTools: true });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <Home />
+    </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
