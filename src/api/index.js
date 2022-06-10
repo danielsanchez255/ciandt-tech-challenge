@@ -7,5 +7,5 @@ const API = axios.create({
     } 
 });
 
-export const fetchPokemon = () => API.get('/pokemon/ditto').catch((error) => console.log("Error: ", error));
+export const fetchPokemon = () => API.get('/pokemon').catch((error) => console.log("Error: ", error));
 
