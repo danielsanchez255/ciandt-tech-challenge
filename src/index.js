@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import pokemonReducer from "./reducers/pokemon";
 
@@ -8,9 +8,9 @@ import Home from "./pages/home/Home";
 
 import "./index.css";
 
-const reducer = {
+const reducer = combineReducers({
   pokemon: pokemonReducer
-}
+});
 
 const store = configureStore({ reducer: reducer, devTools: true });
 
