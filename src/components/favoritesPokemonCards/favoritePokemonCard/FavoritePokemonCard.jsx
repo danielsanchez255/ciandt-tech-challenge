@@ -10,13 +10,10 @@ import './FavoritePokemonCard.css';
 const FavoritePokemonCard = ({ data }) =>  {
   const [displayBasic, setDisplayBasic] = useState(false);
   const dispatch = useDispatch();
-  const pokemonInformation = null;
-	//const pokemonInformation = useSelector((state) => state.pokemonReducer.pokemonInformation) || [];
-
-  //console.log("Information: ", pokemonInformation);
+	const pokemonInformation = useSelector((state) => state.pokemonReducer.pokemonInformation) || [];
 
 	const seeMore = (url) => {
-		//dispatch(gettingPokemon(url));
+		dispatch(gettingPokemon(url));
     setDisplayBasic(true);
 	}
 
