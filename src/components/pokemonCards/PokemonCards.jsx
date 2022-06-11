@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import PokemonCard from './pokemonCard/PokemonCard';
 
 import './PokemonCards.css';
 
@@ -17,9 +18,7 @@ const PokemonCards = () =>  {
 			<div className="layoutPokemonCards">
 				{
 					pokemonData.map((pokemon) => (
-						<div key={pokemon.name}>
-							{pokemon.name}
-						</div>
+						<PokemonCard key={pokemon.name} data={pokemon} />
 					))
 				}
 			</div>
