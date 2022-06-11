@@ -14,8 +14,6 @@ const PokemonCards = () =>  {
 		dispatch(gettingAllPokemon());
 	}, [])
 
-	//console.log("Pokemon: ", pokemonData);
-
 	return (
 		pokemonData === 0 || pokemonData === undefined ? 
 			<div>
