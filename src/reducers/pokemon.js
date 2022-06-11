@@ -5,12 +5,13 @@ export const gettingPokemon = createAsyncThunk(
     "pokemon/gettingPokemon",
     async () => {
       const res = api.fetchPokemon();
-      res.then((response) => {
-        console.log("Pokemon: ", response.data);
+
+      const data = res.then((response) => {
         return response.data;
       }).catch((error) => {
         return console.log("Error: ", error);
       })  
+      return data;
     }
 );
 
@@ -20,7 +21,6 @@ const pokemonSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(gettingPokemon.fulfilled, (state, action) => {
-      console.log("Hi: ", action);
       return action.payload;
     })
   },
