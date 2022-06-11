@@ -2,18 +2,18 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import * as api from '../api';
 
 export const gettingPokemon = createAsyncThunk(
-    "pokemon/gettingPokemon",
-    async () => {
-      const res = api.fetchPokemon();
+  "pokemon/gettingPokemon",
+  async () => {
+    const res = api.fetchPokemon();
 
-      const data = res.then((response) => {
-        return response.data;
-      }).catch((error) => {
-        return console.log("Error: ", error);
-      })  
-      
-      return data;
-    }
+    const data = res.then((response) => {
+      return response.data;
+    }).catch((error) => {
+      return console.log("Error: ", error);
+    })  
+    
+    return data;
+  }
 );
 
 const pokemonSlice = createSlice({
@@ -25,7 +25,7 @@ const pokemonSlice = createSlice({
   reducers: {
     filteredPokemon: (state, action) => {
       const pokemonResults = current(state.pokemonContainer.results);
-      state.pokemon = pokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload))
+      state.pokemon.results = pokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload));
     }
   },
   extraReducers: (builder) => {
