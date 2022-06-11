@@ -3,35 +3,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
-import { Toast } from 'primereact/toast';
 import { gettingPokemon } from '../../../reducers/pokemon';
-import { addPokemon } from '../../../reducers/favoritesPokemon';
 
-import './PokemonCard.css';
+import './FavoritePokemonCard.css';
 
-const PokemonCard = ({ data }) =>  {
+const FavoritePokemonCard = ({ data }) =>  {
   const [displayBasic, setDisplayBasic] = useState(false);
   const dispatch = useDispatch();
-	const pokemonInformation = useSelector((state) => state.pokemonReducer.pokemonInformation) || [];
-	const toast = useRef(null);
+  const pokemonInformation = null;
+	//const pokemonInformation = useSelector((state) => state.pokemonReducer.pokemonInformation) || [];
 
   //console.log("Information: ", pokemonInformation);
 
 	const seeMore = (url) => {
-		dispatch(gettingPokemon(url));
+		//dispatch(gettingPokemon(url));
     setDisplayBasic(true);
-	}
-
-  const addFavorite = (data) => {
-    dispatch(addPokemon(data));
-		toast.current.show({severity:'success', summary: 'Favorite Pokemon added', detail:'Check your favorites page', life: 3000});
 	}
 
 	return (
         <Card>
           <h5 className="p-card-title">{data.name}</h5>
           <Button className="p-button-danger button-right" label="Details" icon="pi pi-info-circle" onClick={() => seeMore(data.url)} />
-          <Button className="p-button-info button-right" label="Favorite" icon="pi pi-star"  onClick={() => addFavorite(data)}/>
           {
             pokemonInformation === undefined || pokemonInformation === null || pokemonInformation.length === 0 ? 
               <div></div>
@@ -56,10 +48,9 @@ const PokemonCard = ({ data }) =>  {
                 </div>
               </Dialog>
           }
-          <Toast ref={toast} position="bottom-right" />
         </Card>
         
 	);
 }
 
-export default PokemonCard;
+export default FavoritePokemonCard;

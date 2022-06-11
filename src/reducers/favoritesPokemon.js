@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 export const favoritesPokemonSlice = createSlice({
   name: 'favoritesPokemon',
   initialState: {
-    favoritesPokemon: []
+    favoritesPokemon: [],
   },
   reducers: {
     addPokemon: (state, action) => {
@@ -20,9 +20,18 @@ export const favoritesPokemonSlice = createSlice({
     },
     deletePokemon: (state, action) => {
       console.log("deletePokemon: ", action);
+    },
+    filteredFavoritesPokemon: (state, action) => {
+      //const favoritesPokemonResults = current(state.favoritesPokemon.results);
+      console.log("Favoritos: ", current(state.favoritesPokemon));
+      /*let favoritesResults = favoritesPokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload.toLowerCase()));
+      return {
+        ...state,
+        favoritesPokemon: [...state.favoritesPokemon, favoritesResults]
+      }*/
     }
   },
 })
 
-export const { addPokemon, deletePokemon } = favoritesPokemonSlice.actions;
+export const { addPokemon, deletePokemon, filteredFavoritesPokemon } = favoritesPokemonSlice.actions;
 export default favoritesPokemonSlice.reducer;
