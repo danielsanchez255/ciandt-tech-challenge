@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import FilterPokemon from '../../components/filterPokemon/FilterPokemon';
 import PokemonCards from '../../components/pokemonCards/PokemonCards';
-import { gettingPokemon } from '../../reducers/pokemon';
 import './Home.css';
 
 const Home = () =>  {
 
-  const dispatch = useDispatch();
-	
-  useEffect(() => {
-		dispatch(gettingPokemon());
-	}, [dispatch])
-
   return (
-    <>
-      <h1>Pokedex</h1>
+    <div className="container">
+      <h1 className="text-center mt-3">Pokedex</h1>
+      <FilterPokemon />
       <PokemonCards />
-    </>
+    </div>
   );
 
 }

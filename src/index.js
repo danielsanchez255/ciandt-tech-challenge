@@ -9,7 +9,7 @@ import Home from "./pages/home/Home";
 import "./index.css";
 
 const reducer = combineReducers({
-  pokemon: pokemonReducer
+  pokemonReducer: pokemonReducer
 });
 
 const store = configureStore({ reducer: reducer, devTools: true });

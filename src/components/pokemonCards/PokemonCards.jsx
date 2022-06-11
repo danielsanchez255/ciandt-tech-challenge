@@ -1,24 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from './pokemonCard/PokemonCard';
+import { gettingPokemon } from '../../reducers/pokemon';
 
 import './PokemonCards.css';
 
 const PokemonCards = () =>  {
 
-	const pokemonData = useSelector((state) => state.pokemon.results);
-	console.log("Pokemon: ", pokemonData);
+	const dispatch = useDispatch();
+	const pokemonData = useSelector((state) => state.pokemonReducer.pokemon.results) || 0;
+
+	useEffect(() => {
+		dispatch(gettingPokemon());
+	}, [dispatch])
+
+	//console.log("Pokemon: ", pokemonData);
 
 	return (
-		!pokemonData.length ? 
+		pokemonData === 0 || pokemonData === undefined ? 
 			<div>
 				Loading...
 			</div>
 		:	
-			<div className="layoutPokemonCards">
+			<div className="row">
 				{
 					pokemonData.map((pokemon) => (
-						<PokemonCard key={pokemon.name} data={pokemon} />
+            <div className="col-md-4 mb-3">
+              <PokemonCard key={pokemon.name} data={pokemon} />
+            </div>
 					))
 				}
 			</div>

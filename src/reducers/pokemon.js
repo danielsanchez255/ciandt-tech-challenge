@@ -11,17 +11,20 @@ export const gettingPokemon = createAsyncThunk(
       }).catch((error) => {
         return console.log("Error: ", error);
       })  
+      
       return data;
     }
 );
 
 const pokemonSlice = createSlice({
   name: "pokemon",
-  initialState: [],
+  initialState: {
+    pokemon: []
+  },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(gettingPokemon.fulfilled, (state, action) => {
-      return action.payload;
+      state.pokemon = action.payload;
     })
   },
 });
