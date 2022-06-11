@@ -15,7 +15,7 @@ const FilterPokemon = () =>  {
 
 	return (
 		<>
-      <InputText placeholder="Search a Pokemon" ref={inputPokemonRef} className="mt-3 mb-3" onChange={filterPokemon} />
+      <InputText placeholder="Search a Pokemon" ref={inputPokemonRef} className="mt-2 mb-3" onChange={filterPokemon} />
     </>
 	);
 

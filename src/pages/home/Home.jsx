@@ -7,7 +7,9 @@ const Home = () =>  {
 
   return (
     <div className="container">
-      <h1 className="text-center mt-3">Pokedex</h1>
+      <div className="text-center mt-3 mb-3">
+        <img src="https://cdn.shopify.com/s/files/1/0555/7708/3985/files/Pokedex_Logo_1586x.png?v=1645727603" srcSet="https://cdn.shopify.com/s/files/1/0555/7708/3985/files/Pokedex_Logo_1586x.png?v=1645727603" alt="Pokedex logo" width="160vw" />
+      </div>
       <FilterPokemon />
       <PokemonCards />
     </div>

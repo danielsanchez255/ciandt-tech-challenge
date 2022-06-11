@@ -1,0 +1,21 @@
+.p-card-title {
+    text-transform: capitalize;
+}
+
+.button-right {
+    float: right;
+}
+
+.pokemon-img {
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #000;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.p-dialog-title {
+    text-transform: capitalize;
+}

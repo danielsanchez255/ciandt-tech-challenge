@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/masters/forest.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: bottom;
+  background-attachment: fixed;
 }
 
 code {

@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import * as api from '../api';
 
-export const gettingPokemon = createAsyncThunk(
-  "pokemon/gettingPokemon",
+export const gettingAllPokemon = createAsyncThunk(
+  "pokemon/gettingAllPokemon",
   async () => {
-    const res = api.fetchPokemon();
+    const res = api.fetchAllPokemon();
 
     const data = res.then((response) => {
       return response.data;
@@ -16,11 +16,28 @@ export const gettingPokemon = createAsyncThunk(
   }
 );
 
+export const gettingPokemon = createAsyncThunk(
+  "pokemon/gettingPokemon",
+  async (url) => {
+    const pokemonUrl = url.split('https://pokeapi.co/api/v2');
+    const res = api.fetchPokemon(pokemonUrl[1]);
+
+    const data = res.then((response) => {
+      return response.data;
+    }).catch((error) => {
+      return console.log("Error: ", error);
+    })  
+
+    return data;
+  }
+);
+
 const pokemonSlice = createSlice({
   name: "pokemon",
   initialState: {
     pokemon: [],
-    pokemonContainer: []
+    pokemonContainer: [],
+    pokemonInformation: []
   },
   reducers: {
     filteredPokemon: (state, action) => {
@@ -29,10 +46,13 @@ const pokemonSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(gettingPokemon.fulfilled, (state, action) => {
+    builder.addCase(gettingAllPokemon.fulfilled, (state, action) => {
       state.pokemon = action.payload;
       state.pokemonContainer = action.payload;
-    })
+    });
+    builder.addCase(gettingPokemon.fulfilled, (state, action) => {
+      state.pokemonInformation = action.payload;
+    });
   },
 });
 

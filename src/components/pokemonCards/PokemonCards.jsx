@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from './pokemonCard/PokemonCard';
-import { gettingPokemon } from '../../reducers/pokemon';
+import { gettingAllPokemon } from '../../reducers/pokemon';
 
 import './PokemonCards.css';
 
@@ -11,13 +11,13 @@ const PokemonCards = () =>  {
 	const pokemonData = useSelector((state) => state.pokemonReducer.pokemon.results) || 0;
 
 	useEffect(() => {
-		dispatch(gettingPokemon());
+		dispatch(gettingAllPokemon());
 	}, [])
 
-	console.log("Pokemon: ", pokemonData);
+	//console.log("Pokemon: ", pokemonData);
 
 	return (
-		!pokemonData ? 
+		pokemonData === 0 || pokemonData === undefined ? 
 			<div>
 				Loading...
 			</div>
