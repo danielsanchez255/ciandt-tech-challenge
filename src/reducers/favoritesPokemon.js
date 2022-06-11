@@ -4,6 +4,7 @@ export const favoritesPokemonSlice = createSlice({
   name: 'favoritesPokemon',
   initialState: {
     favoritesPokemon: [],
+    favoritesPokemonContainer: [],
   },
   reducers: {
     addPokemon: (state, action) => {
@@ -13,7 +14,8 @@ export const favoritesPokemonSlice = createSlice({
         } else {
           return {
             ...state,
-            favoritesPokemon: [...state.favoritesPokemon, action.payload]
+            favoritesPokemon: [...state.favoritesPokemon, action.payload],
+            favoritesPokemonContainer: [...state.favoritesPokemon, action.payload],
           }
         }
       
@@ -22,13 +24,10 @@ export const favoritesPokemonSlice = createSlice({
       console.log("deletePokemon: ", action);
     },
     filteredFavoritesPokemon: (state, action) => {
-      //const favoritesPokemonResults = current(state.favoritesPokemon.results);
-      console.log("Favoritos: ", current(state.favoritesPokemon));
-      /*let favoritesResults = favoritesPokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload.toLowerCase()));
-      return {
-        ...state,
-        favoritesPokemon: [...state.favoritesPokemon, favoritesResults]
-      }*/
+      if (current(state.favoritesPokemon) != []) {
+        const favoritesPokemonResults = current(state.favoritesPokemonContainer);
+        state.favoritesPokemon = favoritesPokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload.toLowerCase()));
+      }
     }
   },
 })

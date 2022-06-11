@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import FavoritePokemonCard from './favoritePokemonCard/FavoritePokemonCard';
 
 import './FavoritesPokemonCards.css';
 
 const FavoritesPokemonCards = () =>  {
 
-	const dispatch = useDispatch();
 	const pokemonData = useSelector((state) => state.favoritesPokemonReducer.favoritesPokemon) || 0;
 
-  console.log("Favoritos: ", pokemonData);
+  //console.log("Favoritos: ", pokemonData);
 
 	return (
 		pokemonData === 0 || pokemonData === undefined ? 

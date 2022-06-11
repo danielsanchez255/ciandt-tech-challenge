@@ -9,13 +9,13 @@ const FilterFavoritesPokemon = () =>  {
 
   const inputPokemonRef = useRef('');
   const dispatch = useDispatch();
-  const filterPokemon = () => {
+  const filterFavoritePokemon = () => {
     dispatch(filteredFavoritesPokemon(inputPokemonRef.current.value));
   }
 
 	return (
 		<>
-      <InputText placeholder="Search your favorite Pokemon" ref={inputPokemonRef} className="mt-2 mb-3" onChange={filterPokemon} />
+      <InputText placeholder="Search your favorite Pokemon" ref={inputPokemonRef} className="mt-2 mb-3" onChange={filterFavoritePokemon} />
     </>
 	);
 
