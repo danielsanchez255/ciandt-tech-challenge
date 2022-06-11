@@ -1,18 +1,21 @@
 import React, { useRef } from 'react';
 import { InputText } from 'primereact/inputtext';
+import { useDispatch } from 'react-redux';
+import { filteredPokemon } from '../../reducers/pokemon';
 
 import './FilterPokemon.css';
 
 const FilterPokemon = () =>  {
 
-  //const [value1, setValue1] = useState('');
+  const inputPokemonRef = useRef('');
+  const dispatch = useDispatch();
   const filterPokemon = () => {
-    
+    dispatch(filteredPokemon(inputPokemonRef.current.value));
   }
 
 	return (
 		<>
-      <InputText className="mt-3 mb-3" onChange={filterPokemon} />
+      <InputText placeholder="Search a Pokemon" ref={inputPokemonRef} className="mt-3 mb-3" onChange={filterPokemon} />
     </>
 	);
 

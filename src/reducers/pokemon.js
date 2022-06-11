@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import * as api from '../api';
 
 export const gettingPokemon = createAsyncThunk(
@@ -19,14 +19,22 @@ export const gettingPokemon = createAsyncThunk(
 const pokemonSlice = createSlice({
   name: "pokemon",
   initialState: {
-    pokemon: []
+    pokemon: [],
+    pokemonContainer: []
   },
-  reducers: {},
+  reducers: {
+    filteredPokemon: (state, action) => {
+      const pokemonResults = current(state.pokemonContainer.results);
+      state.pokemon = pokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload))
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(gettingPokemon.fulfilled, (state, action) => {
       state.pokemon = action.payload;
+      state.pokemonContainer = action.payload;
     })
   },
 });
 
+export const { filteredPokemon } = pokemonSlice.actions;
 export default pokemonSlice.reducer;

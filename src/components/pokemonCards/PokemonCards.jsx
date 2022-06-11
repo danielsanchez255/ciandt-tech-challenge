@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from './pokemonCard/PokemonCard';
 import { gettingPokemon } from '../../reducers/pokemon';
+import { current } from "@reduxjs/toolkit";
 
 import './PokemonCards.css';
 
@@ -14,7 +15,7 @@ const PokemonCards = () =>  {
 		dispatch(gettingPokemon());
 	}, [dispatch])
 
-	//console.log("Pokemon: ", pokemonData);
+	console.log("Pokemon: ", pokemonData);
 
 	return (
 		pokemonData === 0 || pokemonData === undefined ? 
