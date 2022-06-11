@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+import Router from './routes/Router.js';
+
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import pokemonReducer from "./reducers/pokemon";
 import favoritesPokemonReducer from "./reducers/favoritesPokemon";
 
-import Home from "./pages/home/Home";
+//import Home from "./pages/home/Home";
 
 import "./index.css";
 
@@ -20,7 +23,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Home />
+      <Router />
     </React.StrictMode>
   </Provider>
 );

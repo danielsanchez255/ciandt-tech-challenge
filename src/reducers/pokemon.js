@@ -42,7 +42,7 @@ const pokemonSlice = createSlice({
   reducers: {
     filteredPokemon: (state, action) => {
       const pokemonResults = current(state.pokemonContainer.results);
-      state.pokemon.results = pokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload));
+      state.pokemon.results = pokemonResults.filter((pokemonItem) => pokemonItem.name.includes(action.payload.toLowerCase()));
     }
   },
   extraReducers: (builder) => {

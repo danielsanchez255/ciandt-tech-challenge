@@ -12,6 +12,13 @@ const Navbar = () =>  {
     {
         label: 'Options',
         items: [
+          {
+            label: 'Home',
+            icon: 'pi pi-home',
+            command: () => {
+                
+            }
+        },
             {
                 label: 'Favorites',
                 icon: 'pi pi-star',
