@@ -28,13 +28,6 @@ const Navbar = () =>  {
             command: () => {
               navigate('/favorites')
             }
-          },
-          {
-            label: 'Compare Pokemon',
-            icon: 'pi pi-sort-alt',
-            command: () => {
-                
-            }
           }
         ]
     },

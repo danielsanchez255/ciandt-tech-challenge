@@ -16,7 +16,7 @@ const PokemonCard = ({ data }) =>  {
 	const pokemonInformation = useSelector((state) => state.pokemonReducer.pokemonInformation) || [];
 	const toast = useRef(null);
 
-  console.log("Information: ", pokemonInformation.stats);
+  //console.log("Information: ", pokemonInformation.stats);
 
   let labelsArray = [];
   let dataArray = [];

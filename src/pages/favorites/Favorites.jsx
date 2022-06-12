@@ -2,7 +2,6 @@ import React from 'react';
 import FavoritesPokemonCards from '../../components/favoritesPokemonCards/FavoritesPokemonCards';
 import FilterFavoritesPokemon from '../../components/filterFavoritesPokemon/FilterFavoritesPokemon';
 import Navbar from '../../components/navbar/Navbar';
-import PokemonCards from '../../components/pokemonCards/PokemonCards';
 import './Favorites.css';
 
 const Home = () =>  {
