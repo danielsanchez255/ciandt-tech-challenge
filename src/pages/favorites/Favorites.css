@@ -1,0 +1,14 @@
+.title-page {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 25px;
+    width: 200px;
+    text-align: center;
+}
+
+.center {
+    display: grid;
+    place-content: center;
+}

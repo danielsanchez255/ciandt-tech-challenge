@@ -13,7 +13,9 @@ const Home = () =>  {
       <div className="container">
         <div className="text-center mt-3 mb-3">
           <img src="https://cdn.shopify.com/s/files/1/0555/7708/3985/files/Pokedex_Logo_1586x.png?v=1645727603" srcSet="https://cdn.shopify.com/s/files/1/0555/7708/3985/files/Pokedex_Logo_1586x.png?v=1645727603" alt="Pokedex logo" width="160vw" />
-          <h1>Favorites</h1>
+        </div>
+        <div className="center">
+          <h3 className="title-page">Favorites</h3>
         </div>
         <FilterFavoritesPokemon />
         <FavoritesPokemonCards />

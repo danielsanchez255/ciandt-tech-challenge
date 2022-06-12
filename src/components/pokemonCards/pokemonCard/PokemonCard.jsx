@@ -25,13 +25,10 @@ const PokemonCard = ({ data }) =>  {
     
   } else {
     pokemonInformation.stats.map((stat) => {
-      console.log("Stat: ", stat.base_stat);
       labelsArray.push(stat.stat.name);
       dataArray.push(stat.base_stat);
     })
   }
-
-  console.log("data: ", dataArray);
 
   const [chartData] = useState({
     labels: labelsArray,
@@ -55,9 +52,9 @@ const PokemonCard = ({ data }) =>  {
                 "#BB8254"
             ]
         }]
-});
+  });
 
-const [lightOptions] = useState({
+  const [lightOptions] = useState({
     plugins: {
         legend: {
             labels: {
@@ -65,7 +62,7 @@ const [lightOptions] = useState({
             }
         }
     }
-});
+  });
 
 	const seeMore = (url) => {
 		dispatch(gettingPokemon(url));
